@@ -16,7 +16,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 5500;
 app.use(
     cors({
-        origin: `https://64c4022440213634535c102c--expresschat.netlify.app:${PORT}/`,
+        origin: "*",
     })
 );
 // First basic route.
