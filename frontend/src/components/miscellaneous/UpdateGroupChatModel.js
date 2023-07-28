@@ -22,6 +22,7 @@ import UserBadgeItem from "../UserAvatar/UserBadgeItem";
 import axios from "axios";
 import UserListItem from "../UserAvatar/UserListItem";
 const BACKEND_API = require("../../config/ApiServer");
+const URL = BACKEND_API.URL;
 
 const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
     // states
@@ -60,7 +61,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
             };
 
             const { data } = await axios.put(
-                `${BACKEND_API}/api/chat/groupremove`,
+                `${URL}/api/chat/groupremove`,
                 {
                     groupId: selectedChat._id,
                     userId: selectedGroupUser._id,
@@ -105,7 +106,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.put(
-                `${BACKEND_API}/api/chat/rename`,
+                `${URL}/api/chat/rename`,
                 {
                     groupName: groupChatName,
                     groupChatId: selectedChat._id,
@@ -172,7 +173,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
             };
 
             const { data } = await axios.put(
-                `${BACKEND_API}/api/chat/groupAdd`,
+                `${URL}/api/chat/groupAdd`,
                 {
                     groupId: selectedChat._id,
                     userId: selectedUser._id,
@@ -218,7 +219,7 @@ const UpdateGroupChatModel = ({ fetchAgain, setFetchAgain }) => {
                 },
             };
             const { data } = await axios.get(
-                `${BACKEND_API}/api/user?search=${searchQuery}`,
+                `${URL}/api/user?search=${searchQuery}`,
                 config
             );
 

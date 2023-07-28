@@ -30,6 +30,7 @@ import axios from "axios";
 import { getSender } from "../config/ChatLogics";
 import NotificationBadge from "./miscellaneous/NotificationBadge";
 const BACKEND_API = require("../config/ApiServer");
+const URL = BACKEND_API.URL;
 
 const SideDrawer = () => {
     // States
@@ -74,7 +75,7 @@ const SideDrawer = () => {
         try {
             setLoadingChat(true);
             const { data } = await axios.post(
-                `${BACKEND_API}/api/chat`,
+                `${URL}/api/chat`,
                 { userId },
                 config
             );
@@ -131,7 +132,7 @@ const SideDrawer = () => {
 
             // make a get request to the route, /api/user/
             const { data } = await axios.get(
-                `${BACKEND_API}/api/user?search=${search}`,
+                `${URL}/api/user?search=${search}`,
                 config
             );
 

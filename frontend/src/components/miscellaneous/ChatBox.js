@@ -20,6 +20,7 @@ import { io } from "socket.io-client";
 import Lottie from "lottie-react";
 import TypingAnimation from "../../animations/typing.json";
 const BACKEND_API = require("../../config/ApiServer");
+const URL = BACKEND_API.URL;
 
 const ENDPOINT = "http://localhost:5500";
 let socket;
@@ -80,7 +81,7 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
             };
 
             const { data } = await axios.get(
-                `${BACKEND_API}/api/message/${selectedChat._id}`,
+                `${URL}/api/message/${selectedChat._id}`,
                 config
             );
             setMessages(data);
@@ -148,7 +149,7 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
                 setLoading(true);
                 setNewMessage("");
                 const { data } = await axios.post(
-                    `${BACKEND_API}/api/message`,
+                    `${URL}/api/message`,
                     message,
                     config
                 );

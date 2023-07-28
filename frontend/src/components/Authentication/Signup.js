@@ -12,6 +12,7 @@ import {
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 const BACKEND_API = require("../../config/ApiServer");
+const URL = BACKEND_API.URL;
 
 const Signup = () => {
     // defining states
@@ -69,7 +70,7 @@ const Signup = () => {
 
         try {
             const { data } = await axios.post(
-                `${BACKEND_API}/api/user`,
+                `${URL}/api/user`,
                 { name, email, password, pic },
                 config
             );
