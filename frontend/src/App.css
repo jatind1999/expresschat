@@ -1,0 +1,9 @@
+.App {
+    min-height: 100vh;
+    background-color: #04032d;
+    /* background-color: #84d26b; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
