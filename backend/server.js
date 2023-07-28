@@ -13,6 +13,7 @@ const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
 const cors = require("cors");
 
+const PORT = process.env.PORT || 5500;
 app.use(
     cors({
         origin: `https://64c4022440213634535c102c--expresschat.netlify.app:${PORT}/`,
@@ -39,8 +40,6 @@ app.use(notFound);
 
 // 2. Uncaught Errors
 app.use(errorHandler);
-
-const PORT = process.env.PORT || 5500;
 
 const server = app.listen(
     PORT,
