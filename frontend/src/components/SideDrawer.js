@@ -29,6 +29,7 @@ import UserListItem from "./UserAvatar/UserListItem";
 import axios from "axios";
 import { getSender } from "../config/ChatLogics";
 import NotificationBadge from "./miscellaneous/NotificationBadge";
+const BACKEND_API = require("../config/ApiServer");
 
 const SideDrawer = () => {
     // States
@@ -72,7 +73,11 @@ const SideDrawer = () => {
         console.log(userId);
         try {
             setLoadingChat(true);
-            const { data } = await axios.post("/api/chat", { userId }, config);
+            const { data } = await axios.post(
+                `${BACKEND_API}/api/chat`,
+                { userId },
+                config
+            );
             // if the chat is not present in all fetched chats of the logged in user.
             // then append the new chat in all the chat list. and set chats again to new list.
             if (!chats.find((chat) => chat._id === data._id)) {
@@ -126,7 +131,7 @@ const SideDrawer = () => {
 
             // make a get request to the route, /api/user/
             const { data } = await axios.get(
-                `/api/user?search=${search}`,
+                `${BACKEND_API}/api/user?search=${search}`,
                 config
             );
 

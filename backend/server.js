@@ -11,7 +11,13 @@ const userRoutes = require("./routes/userRoutes");
 const chatRoutes = require("./routes/chatRoutes");
 const messageRoutes = require("./routes/messageRoutes");
 const { notFound, errorHandler } = require("./middlewares/errorMiddleware");
+const cors = require("cors");
 
+app.use(
+    cors({
+        origin: "https://64c4022440213634535c102c--expresschat.netlify.app/",
+    })
+);
 // First basic route.
 app.get("", (req, res) => {
     res.send("Working!!!!!");

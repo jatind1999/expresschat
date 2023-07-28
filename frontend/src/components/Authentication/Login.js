@@ -11,6 +11,10 @@ import {
 } from "@chakra-ui/react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+const BACKEND_API = require("../../config/ApiServer");
+const URL = BACKEND_API.URL;
+
+console.log(`URL fetched is: ${URL}`);
 
 const Login = () => {
     // defining states
@@ -50,7 +54,7 @@ const Login = () => {
 
         try {
             const { data } = await axios.post(
-                "/api/user/login",
+                `${URL}/api/user/login`,
                 { email, password },
                 config
             );

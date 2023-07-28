@@ -6,6 +6,7 @@ import { AddIcon } from "@chakra-ui/icons";
 import ChatLoading from "./ChatLoading";
 import { getSender } from "../config/ChatLogics";
 import GroupChatModal from "./miscellaneous/GroupChatModal";
+const BACKEND_API = require("../config/ApiServer");
 
 const MyChats = ({ fetchAgain }) => {
     const [loggedUser, setLoggedUser] = useState();
@@ -19,7 +20,7 @@ const MyChats = ({ fetchAgain }) => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
-            const { data } = await axios.get("/api/chat", config);
+            const { data } = await axios.get(`${BACKEND_API}/api/chat`, config);
 
             // set the data in chats state.
             setChats(data);

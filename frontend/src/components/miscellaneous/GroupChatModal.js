@@ -19,6 +19,7 @@ import { ChatState } from "../../context/ChatContext";
 import axios from "axios";
 import UserListItem from "../UserAvatar/UserListItem";
 import UserBadgeItem from "../UserAvatar/UserBadgeItem";
+const BACKEND_API = require("../../config/ApiServer");
 
 const GroupChatModal = ({ children }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
@@ -50,7 +51,7 @@ const GroupChatModal = ({ children }) => {
                 },
             };
             const { data } = await axios.get(
-                `/api/user?search=${searchQuery}`,
+                `${BACKEND_API}/api/user?search=${searchQuery}`,
                 config
             );
 
@@ -90,7 +91,7 @@ const GroupChatModal = ({ children }) => {
             };
 
             const { data } = await axios.post(
-                "/api/chat/group",
+                `${BACKEND_API}/api/chat/group`,
                 {
                     groupName: groupName,
                     users: JSON.stringify(groupMembers.map((user) => user._id)),
