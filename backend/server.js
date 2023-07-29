@@ -53,6 +53,8 @@ const io = new Server(server, {
     },
 });
 
+console.log(io);
+
 io.on("connection", (socket) => {
     console.log("New Client-Server socket connection established.");
     socket.on("setup", (userData) => {

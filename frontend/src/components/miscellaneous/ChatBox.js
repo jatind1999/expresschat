@@ -44,6 +44,7 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
 
     useEffect(() => {
         socket = io(ENDPOINT);
+        console.log(socket);
         socket.emit("setup", user);
         socket.on("connected", () => {
             setSocketConnected(true);
