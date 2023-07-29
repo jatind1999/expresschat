@@ -22,7 +22,7 @@ import TypingAnimation from "../../animations/typing.json";
 const BACKEND_API = require("../../config/ApiServer");
 const URL = BACKEND_API.URL;
 
-const ENDPOINT = "https://expresschat.onrender.com:5500";
+const ENDPOINT = "https://expresschat.onrender.com";
 let socket;
 
 const ChatBox = ({ fetchAgain, setFetchAgain }) => {
@@ -44,7 +44,6 @@ const ChatBox = ({ fetchAgain, setFetchAgain }) => {
 
     useEffect(() => {
         socket = io(ENDPOINT);
-        console.log(socket);
         socket.emit("setup", user);
         socket.on("connected", () => {
             setSocketConnected(true);
